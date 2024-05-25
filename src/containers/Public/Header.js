@@ -4,11 +4,16 @@ import { Buttons } from '../../components';
 import icons from '../../utils/icons';
 import { useNavigate, Link } from 'react-router-dom';
 import { path } from '../../utils/constant';
+import { useSelector, useDispatch } from 'react-redux';
+import * as actions from '../../store/actions';
+import Login from './Login';
 
 const { AiOutlinePlusCircle } = icons
 
 const Header = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { isLoggedIn } = useSelector(state => state.auth)
     const goLogin = useCallback((flag) => {
         navigate(path.LOGIN, { state: { flag } })
     }, [])
@@ -19,19 +24,30 @@ const Header = () => {
                     <img className='w-[240px] h-[70px] object-contain' src={logo} alt='logo' />
                 </Link>
                 <div className='flex items-center gap-2'>
-                    <small>Phongtro123 xin chào!</small>
-                    <Buttons
-                        text='Đăng nhập'
-                        textColor='text-white'
-                        bgColor='bg-[#1266dd]'
-                        onClick={() => goLogin(false)}
-                    />
-                    <Buttons
-                        text='Đăng ký'
-                        textColor='text-white'
-                        bgColor='bg-[#1266dd]'
-                        onClick={() => goLogin(true)}
-                    />
+                    {!isLoggedIn && <div className='flex items-center gap-2'>
+                        <small>Phongtro123 xin chào!</small>
+                        <Buttons
+                            text='Đăng nhập'
+                            textColor='text-white'
+                            bgColor='bg-[#1266dd]'
+                            onClick={() => goLogin(false)}
+                        />
+                        <Buttons
+                            text='Đăng ký'
+                            textColor='text-white'
+                            bgColor='bg-[#1266dd]'
+                            onClick={() => goLogin(true)}
+                        />
+                    </div>}
+                    {isLoggedIn && <div className='flex items-center gap-2'>
+                        <small>Tên!</small>
+                        <Buttons
+                            text='Đăng xuất'
+                            textColor='text-white'
+                            bgColor='bg-red-600'
+                            onClick={() => dispatch(actions.logout())}
+                        />
+                    </div>}
                     <Buttons
                         text='Đăng tin mới'
                         textColor='text-white'
