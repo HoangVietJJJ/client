@@ -6,7 +6,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { path } from '../../utils/constant';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../store/actions';
-import Login from './Login';
 
 const { AiOutlinePlusCircle } = icons
 
