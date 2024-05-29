@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { apiGetCategories } from '../../services/category'
-import { formatVietnameseToString } from '../../utils/constant'
+import { formatVietnameseToString } from '../../utils/Common/formatVietNameseToString'
 
 // const nav = [
 //     { name: "Trang chủ", path: "home" },

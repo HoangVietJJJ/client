@@ -6,7 +6,7 @@ const { GrNext, CiLocationOn, LiaCropSolid, MdOutlinePriceChange, FaRegBuilding,
 
 const Search = () => {
     return (
-        <div className='p-[10px] bg-[#febb02] rounded-lg flex-col lg:flex-row flex items-center justify-around gap-2'>
+        <div className='p-[10px] w-3/5 mt-3 bg-[#febb02] rounded-lg flex-col lg:flex-row flex items-center justify-around gap-2'>
             <SearchItem IconBefore={<FaRegBuilding />} fontWeight IconAfter={<GrNext />} text='Phòng trọ, nhà trọ' />
             <SearchItem IconBefore={<CiLocationOn />} IconAfter={<GrNext />} text='Toàn quốc' />
             <SearchItem IconBefore={<MdOutlinePriceChange />} IconAfter={<GrNext />} text='Chọn giá' />
