@@ -1,6 +1,7 @@
 import React from 'react'
 import { text } from '../../utils/constant'
 import { Province } from '../../components'
+import { List } from './index'
 
 const HomePage = () => {
     return (
@@ -10,6 +11,15 @@ const HomePage = () => {
                 <p className='text-base text-[#65676b]'>{text.HOME_DESCRIPTION}</p>
             </div>
             <Province />
+            <div className='w-[100%] flex gap-4'>
+                <div className='w-[70%]'>
+                    <List />
+                </div>
+
+                <div className='w-[30%] border border-green-500'>
+                    Sidebar
+                </div>
+            </div>
         </div>
     )
 }
