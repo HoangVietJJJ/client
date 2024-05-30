@@ -4,8 +4,8 @@ import icons from '../utils/icons'
 const images = [
     "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2023/07/27/hanh-lang-1_1690431683.png",
     "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2023/07/26/img-0859_1690378046.jpg",
-    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2023/07/26/img-0860_1690378047.jpg",
-    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2023/07/26/img-0864_1690378051.jpg",
+    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2024/05/13/img-1096_1715563378.jpg",
+    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2024/05/13/img-1098_1715563382.jpg",
 ]
 
 const { GrStar, RiHeart3Line, RiHeart3Fill, BsBookmarkStarFill } = icons
@@ -41,7 +41,7 @@ const Item = () => {
                 <p className='text-gray-500'>
                     Cho Thuê Căn Hộ Mini Cao Cấp tại Cầu Giấy, Hà NộiVị trí đắc địa ở Nhà 46A, Ngách 28/260 Cầu Giấy, Hà Nộ, đi bộ ra chợ, bến xe buýt, cách Ga tàu trên…
                 </p>
-                <div className='flex items-center my-5 justify-between'>
+                <div className='flex items-center mt-5 justify-between'>
                     <div className='flex items-center'>
                         <img
                             className='w-[30px] h-[30px] object-cover rounded-full'
