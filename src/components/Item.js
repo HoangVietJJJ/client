@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import icons from '../utils/icons'
 
 const images = [
@@ -11,13 +11,21 @@ const images = [
 const { GrStar, RiHeart3Line, RiHeart3Fill, BsBookmarkStarFill } = icons
 
 const Item = () => {
+    const [isHoverHeart, setIsHoverHeart] = useState(false)
     return (
         <div className='w-full flex border-t border-orange-600 p-3'>
-            <div className='w-2/5 flex flex-wrap gap-[2px] items-center'>
-                <img className='w-[130px] h-[110px] object-cover' src={images[0]} alt='preview' />
-                <img className='w-[130px] h-[110px] object-cover' src={images[1]} alt='preview' />
-                <img className='w-[130px] h-[110px] object-cover' src={images[2]} alt='preview' />
-                <img className='w-[130px] h-[110px] object-cover' src={images[3]} alt='preview' />
+            <div className='w-2/5 flex flex-wrap gap-[2px] items-center relative cursor-pointer'>
+                <img className='w-[120px] h-[110px] object-cover' src={images[0]} alt='preview' />
+                <img className='w-[120px] h-[110px] object-cover' src={images[1]} alt='preview' />
+                <img className='w-[120px] h-[110px] object-cover' src={images[2]} alt='preview' />
+                <img className='w-[120px] h-[110px] object-cover' src={images[3]} alt='preview' />
+                <span className='bg-overlay-70 text-white px-2 rounded-md absolute left-1 bottom-1'>4 ảnh</span>
+                <span
+                    onMouseEnter={() => setIsHoverHeart(true)}
+                    onMouseLeave={() => setIsHoverHeart(false)}
+                    className=' text-white absolute right-5 bottom-1'>
+                    {isHoverHeart ? <RiHeart3Fill size={26} color='rgb(247, 56, 89)' /> : <RiHeart3Line size={26} />}
+                </span>
             </div>
             <div className='w-3/5'>
                 <div className='flex justify-between gap-4 w-full'>
