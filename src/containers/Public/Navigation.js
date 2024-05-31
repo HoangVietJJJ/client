@@ -20,7 +20,7 @@ const Navigation = () => {
 
 
     return (
-        <div className='w-screen flex justify-center items-center h-[40px] bg-secondary1 text-white'>
+        <div className='w-screen flex justify-center items-center h-[40px] bg-secondary1 text-white'> {/* w-full */}
             <div className='w-3/5 flex items-center h-full text-[0.95rem] font-bold font-arial'>
                 <NavLink
                     className={({ isActive }) => isActive ? active : notActive}

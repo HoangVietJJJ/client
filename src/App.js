@@ -4,7 +4,7 @@ import { path } from './utils/constant';
 
 function App() {
   return (
-    <div className="min-h-screen w-full bg-primary"> {/* h-screen w-screen */}
+    <div className=" min-h-screen w-screen bg-primary"> {/* h-screen w-screen */}
       <Routes>
         <Route path={path.HOME} element={<Home />} >
           <Route path='*' element={<HomePage />} />

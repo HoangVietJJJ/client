@@ -1,29 +1,26 @@
 import React, { memo, useState } from 'react'
 import icons from '../utils/icons'
 
-const images = [
-    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2023/07/27/hanh-lang-1_1690431683.png",
-    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2023/07/26/img-0859_1690378046.jpg",
-    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2024/05/13/img-1096_1715563378.jpg",
-    "https://pt123.cdn.static123.com/images/thumbs/900x600/fit/2024/05/13/img-1098_1715563382.jpg",
-]
+const indexes = [0, 1, 2, 3]
 
 const { GrStar, RiHeart3Line, RiHeart3Fill, BsBookmarkStarFill } = icons
 
-const Item = () => {
+const Item = ({ images, user, title, star, description, address, attributes }) => {
+    // console.log(JSON.parse(images));
     const [isHoverHeart, setIsHoverHeart] = useState(false)
     return (
-        <div className='w-full flex border-t border-orange-600 p-3'>
+        <div className='w-full flex border-t border-orange-600 py-3'>
             <div className='w-2/5 flex flex-wrap gap-[2px] items-center relative cursor-pointer'>
-                <img className='w-[120px] h-[110px] object-cover' src={images[0]} alt='preview' />
-                <img className='w-[120px] h-[110px] object-cover' src={images[1]} alt='preview' />
-                <img className='w-[120px] h-[110px] object-cover' src={images[2]} alt='preview' />
-                <img className='w-[120px] h-[110px] object-cover' src={images[3]} alt='preview' />
-                <span className='bg-overlay-70 text-white px-2 rounded-md absolute left-1 bottom-1'>4 ảnh</span>
+                {images.length > 0 && images.filter((i, index) => indexes.some(i => i === index))?.map((i, index) => {
+                    return (
+                        <img key={index} className='w-[120px] h-[110px] object-cover' src={i} alt='preview' />
+                    )
+                })}
+                <span className='bg-overlay-70 text-white px-2 rounded-md absolute left-1 bottom-3'>{`${images.length} ảnh`}</span>
                 <span
                     onMouseEnter={() => setIsHoverHeart(true)}
                     onMouseLeave={() => setIsHoverHeart(false)}
-                    className=' text-white absolute right-5 bottom-1'>
+                    className=' text-white absolute right-8 bottom-1'>
                     {isHoverHeart ? <RiHeart3Fill size={26} color='rgb(247, 56, 89)' /> : <RiHeart3Line size={26} />}
                 </span>
             </div>
@@ -35,19 +32,19 @@ const Item = () => {
                         <GrStar className='star-item' size={18} color='yellow' />
                         <GrStar className='star-item' size={18} color='yellow' />
                         <GrStar className='star-item' size={18} color='yellow' />
-                        CHO THUÊ PHÒNG TRỌ GIÁ RẺ HÀ NỘI CÓ MỘT KHÔNG HAI
+                        {title}
                     </div>
                     <div className='w-[10%] flex justify-end'>
                         <BsBookmarkStarFill size={24} color='orange' />
                     </div>
                 </div>
                 <div className='my-3 flex items-center justify-between'>
-                    <span className='font-bold text-green-600'>4.5 triệu/tháng</span>
-                    <span>28m²</span>
-                    <span>Quận Cầu Giấy, Hà Nội</span>
+                    <span className='font-bold text-green-600'>{attributes?.price}</span>
+                    <span>{attributes?.acreage}</span>
+                    <span>{address}</span>
                 </div>
-                <p className='text-gray-500'>
-                    Cho Thuê Căn Hộ Mini Cao Cấp tại Cầu Giấy, Hà NộiVị trí đắc địa ở Nhà 46A, Ngách 28/260 Cầu Giấy, Hà Nộ, đi bộ ra chợ, bến xe buýt, cách Ga tàu trên…
+                <p className='text-gray-500 w-full h-[26px] whitespace-nowrap text-ellipsis overflow-hidden'>
+                    {description}
                 </p>
                 <div className='flex items-center mt-5 justify-between'>
                     <div className='flex items-center'>
@@ -55,17 +52,17 @@ const Item = () => {
                             className='w-[30px] h-[30px] object-cover rounded-full'
                             src='https://www.shutterstock.com/image-vector/default-avatar-profile-icon-vector-600nw-1745180411.jpg'
                             alt='avatar' />
-                        <p>Tuệ Thu</p>
+                        <p className='text-[13px] text-gray-500'>{user?.name}</p>
                     </div>
                     <div className='flex items-center gap-1'>
                         <button
                             type='button'
                             className='bg-secondary1 text-white p-1 rounded-md'>
-                            Gọi 012312312
+                            {`Gọi ${user?.phone}`}
                         </button>
                         <button
                             type='button'
-                            className='text-blue-700 px-1 rounded-md border border-blue-700 hover:bg-secondary1 hover:text-white'>
+                            className='text-blue-700 px-1 rounded-md border border-blue-700 hover:bg-secondary1 hover:text-white h-[32px]'>
                             Nhắn Zalo
                         </button>
                     </div>
