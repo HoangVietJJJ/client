@@ -7,6 +7,7 @@ import { FaRegBuilding } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { RiHeart3Line, RiHeart3Fill } from "react-icons/ri";
 import { BsBookmarkStarFill } from "react-icons/bs";
+import { PiCaretDoubleRight } from "react-icons/pi";
 
 
 const icons = {
@@ -20,7 +21,8 @@ const icons = {
     GrStar,
     RiHeart3Line,
     RiHeart3Fill,
-    BsBookmarkStarFill
+    BsBookmarkStarFill,
+    PiCaretDoubleRight
 }
 
 export default icons

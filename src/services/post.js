@@ -12,3 +12,16 @@ export const apiGetPosts = () => new Promise(async (resolve, reject) => {
         reject(e)
     }
 })
+
+export const apiGetPostsLimit = (page) => new Promise(async (resolve, reject) => {
+    try {
+        const response = await axiosConfig({
+            method: 'get',
+            url: `/api/v1/post/limit?page${page}`,
+        })
+        resolve(response)
+    } catch (e) {
+        console.error('API Register error:', e); // Log lỗi để dễ dàng debug
+        reject(e)
+    }
+})
