@@ -1,26 +1,28 @@
 import React, { memo } from 'react'
 import { createSearchParams, useNavigate } from 'react-router-dom'
 
+const notActive = 'w-[46px] h-[48px] flex justify-center items-center bg-white text-[#333] hover:bg-gray-300 rounded-md cursor-pointer'
+const active = 'w-[46px] h-[48px] flex justify-center items-center bg-[#E13427] text-white rounded-md cursor-pointer'
 
-const PageNumber = ({ number }) => {
+const PageNumber = ({ text, currentPage, icon, setCurrentPage, type }) => {
 
     const navigate = useNavigate();
-
     const handleChangePage = () => {
+        setCurrentPage(+text)
         navigate({
             pathname: "/",
             search: createSearchParams({
-                page: number
+                page: text
             }).toString()
         });
     }
 
     return (
         <div
-            className='px-5 py-3 bg-white text-[#333] hover:bg-gray-300 active:bg-[#E13427] active:text-white rounded-md cursor-pointer'
+            className={+text === +currentPage ? active : notActive}
             onClick={handleChangePage}
         >
-            {number}
+            {icon || text}
         </div>
     )
 }
