@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom'
 
 const HomePage = () => {
     const [params] = useSearchParams()
+    console.log(params);
     return (
         <div className='border border-red-500 w-full flex flex-col gap-3'>
             <div>
@@ -15,8 +16,8 @@ const HomePage = () => {
             <Province />
             <div className='w-[100%] flex gap-4'>
                 <div className='w-[70%]'>
-                    <List />
-                    <Pagination number={params.get('page')} />
+                    <List page={params.get('page')} />
+                    <Pagination page={params.get('page')} />
                     <div className='h-[500px]'></div>
                 </div>
 

@@ -1,16 +1,28 @@
 import React, { memo, useState } from 'react'
 import icons from '../utils/icons'
+import { useNavigate, Link } from 'react-router-dom'
+import { formatVietnameseToString } from '../utils/Common/formatVietNameseToString'
 
 const indexes = [0, 1, 2, 3]
 
 const { GrStar, RiHeart3Line, RiHeart3Fill, BsBookmarkStarFill } = icons
 
-const Item = ({ images, user, title, star, description, address, attributes }) => {
-    // console.log(JSON.parse(images));
+const Item = ({ images, user, title, star, description, address, attributes, id }) => {
     const [isHoverHeart, setIsHoverHeart] = useState(false)
+    const navigate = useNavigate()
+
+    const handleStar = (star) => {
+        let stars = []
+        for (let i = 1; i <= +star; i++) stars.push(<GrStar className='star-item' size={18} color='yellow' />)
+        return stars
+    }
+    // console.log(handleStar(5));
     return (
         <div className='w-full flex border-t border-orange-600 py-3'>
-            <div className='w-2/5 flex flex-wrap gap-[2px] items-center relative cursor-pointer'>
+            <Link
+                to={`chi-tiet/${formatVietnameseToString(title)}/${id}`}
+                className='w-2/5 flex flex-wrap gap-[2px] items-center relative cursor-pointer'
+            >
                 {images.length > 0 && images.filter((i, index) => indexes.some(i => i === index))?.map((i, index) => {
                     return (
                         <img key={index} className='w-[120px] h-[110px] object-cover' src={i} alt='preview' />
@@ -23,15 +35,15 @@ const Item = ({ images, user, title, star, description, address, attributes }) =
                     className=' text-white absolute right-8 bottom-1'>
                     {isHoverHeart ? <RiHeart3Fill size={26} color='rgb(247, 56, 89)' /> : <RiHeart3Line size={26} />}
                 </span>
-            </div>
+            </Link>
             <div className='w-3/5'>
                 <div className='flex justify-between gap-4 w-full'>
                     <div className='text-red-500 font-medium'>
-                        <GrStar className='star-item' size={18} color='yellow' />
-                        <GrStar className='star-item' size={18} color='yellow' />
-                        <GrStar className='star-item' size={18} color='yellow' />
-                        <GrStar className='star-item' size={18} color='yellow' />
-                        <GrStar className='star-item' size={18} color='yellow' />
+                        {handleStar(+star).length > 0 && handleStar(+star).map((star, number) => {
+                            return (
+                                <span key={number}>{star}</span>
+                            )
+                        })}
                         {title}
                     </div>
                     <div className='w-[10%] flex justify-end'>

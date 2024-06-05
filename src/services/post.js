@@ -15,9 +15,10 @@ export const apiGetPosts = () => new Promise(async (resolve, reject) => {
 
 export const apiGetPostsLimit = (page) => new Promise(async (resolve, reject) => {
     try {
+        console.log('page client service', page);
         const response = await axiosConfig({
             method: 'get',
-            url: `/api/v1/post/limit?page${page}`,
+            url: `/api/v1/post/limit?page=${page}`,
         })
         resolve(response)
     } catch (e) {
