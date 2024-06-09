@@ -4,7 +4,7 @@ import * as apies from '../../services'
 export const getCategories = () => async (dispatch) => {
     try {
         const response = await apies.apiGetCategories()
-        console.log(response);
+        // console.log(response);
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_CATEGORIES,
@@ -28,7 +28,7 @@ export const getCategories = () => async (dispatch) => {
 export const getPrices = () => async (dispatch) => {
     try {
         const response = await apies.apiGetPrices()
-        console.log(response);
+        // console.log(response);
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_PRICES,
@@ -54,7 +54,7 @@ export const getPrices = () => async (dispatch) => {
 export const getAcreages = () => async (dispatch) => {
     try {
         const response = await apies.apiGetAcreages()
-        console.log(response);
+        // console.log(response);
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_ACREAGES,

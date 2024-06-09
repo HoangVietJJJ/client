@@ -4,7 +4,7 @@ import { apiGetPosts, apiGetPostsLimit } from '../../services/post'
 export const getPosts = () => async (dispatch) => {
     try {
         const response = await apiGetPosts()
-        console.log(response);
+        // console.log(response);
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_POSTS,
@@ -28,7 +28,7 @@ export const getPostsLimit = (query) => async (dispatch) => {
     console.log(query);
     try {
         const response = await apiGetPostsLimit(query)
-        console.log('response', response);
+        // console.log('response', response);
         if (response?.data.err === 0) {
             dispatch({
                 type: actionTypes.GET_POSTS_LIMIT,
