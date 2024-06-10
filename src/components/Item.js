@@ -57,7 +57,7 @@ const Item = ({ images, user, title, star, description, address, attributes, id 
                         {`${address.split(',')[address.split(',').length - 2]},${address.split(',')[address.split(',').length - 1]}`}
                     </span>
                 </div>
-                <p className='text-gray-500 w-full h-[50px] whitespace-nowrap text-ellipsis overflow-hidden'>
+                <p className='text-gray-500 w-full h-[50px] whitespace-normal text-ellipsis overflow-hidden'>
                     {description}
                 </p>
                 <div className='flex items-center mt-5 justify-between'>
